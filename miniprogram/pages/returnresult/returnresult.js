@@ -3,11 +3,28 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '您的新冠检测结果为',
+    motto: '您的新冠阳性概率为',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    answer:'testing'
+    answer:'testing',
+    winWidth: 0,
+    winHeight: 0,
+    // tab切换
+    currentTab: 0,
+
+
+
+
+    artlist:[
+      { imag: '/img/art1.png', art: "1111111111111111111111" },
+      { imag: '/img/art2.png', art: "2222222222222222222222" },
+      { imag: '/img/art3.png', art: "3333333333333333333333" },
+      { imag: '/img/art4.png', art: "4444444444444444444444" }
+    ]
+
+
+
   },
   //事件处理函数
   onReady:function(){
@@ -54,5 +71,45 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+
+
+
+onLoad: function() {
+  var that = this;
+  /**
+   * 获取系统信息
+   */
+  wx.getSystemInfo( {
+
+    success: function( res ) {
+      that.setData( {
+        winWidth: res.windowWidth,
+        winHeight: res.windowHeight
+      });
+    }
+
+  });
+},
+/**
+   * 滑动切换tab
+   */
+bindChange: function( e ) {
+  var that = this;
+  that.setData( { currentTab: e.detail.current });
+},
+/**
+ * 点击tab切换
+ */
+swichNav:function( e ) {
+  var that = this;
+  if( this.data.currentTab === e.target.dataset.current ) {
+    return false;
+  } else {
+    that.setData( {
+      currentTab: e.target.dataset.current
+    })
   }
+}
+
 })

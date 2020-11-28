@@ -1,6 +1,7 @@
 /* pages/returnresult/returnresult.wxss */
 .userinfo {
   display: flex;
+  margin-top: 40px;
   flex-direction: column;
   align-items: center;
 }
@@ -24,4 +25,51 @@
   font-size:20px;
   font-weight:bold;
   font-family:微软雅黑;
+}
+
+.data0{
+  display:flex;
+  justify-content:center;
+  margin-top: 80px;
+  color:black;
+  font-size:20px;
+  font-weight:bold;
+  font-family:微软雅黑;
+}
+
+.swiper-tab{
+	width: 100%;
+	border-bottom: 2rpx solid #777777;
+	text-align: center;
+	line-height: 80rpx;}
+.swiper-tab-list{  font-size: 30rpx;
+    display: inline-block;
+	width: 33.33%;
+	color: #777777;
+}
+.on{ color: #da7c0c;
+	border-bottom: 5rpx solid #da7c0c;}
+ 
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
+.swiper-box view{
+	text-align: center;
+}
+
+.artImg {
+  width: 30%;
+}
+ 
+.art {
+  width: 70%;
+}
+ 
+.artImg image {
+  width: 100%;
+  height: 150rpx;
+}
+ 
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }

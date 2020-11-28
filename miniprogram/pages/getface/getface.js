@@ -56,8 +56,8 @@ Page({
     wx.showLoading({title: '上传中...',});
     wx.uploadFile({
       url: getApp().globalData.imgurl,     
-      //filePath: 'recordings/timg.jpg',
-      filePath: getApp().globalData.imgrt,     
+      filePath: 'recordings/timg.jpg',
+      //filePath: getApp().globalData.imgrt,     
       name: "figure", //name should be the file key in formData,
       header: {
         coughtoken:coughtoken
@@ -74,7 +74,7 @@ Page({
         console.log(data)
         //do something
         that.setData({debuginfo:JSON.stringify(res.data)});
-        //wx.navigateTo({url: '/pages/return/return'});
+        wx.navigateTo({url: '/pages/returnresult/returnresult'});
       },     
       fail: err => {     
         console.log('img upload error:',err);
