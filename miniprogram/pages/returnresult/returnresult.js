@@ -1,6 +1,5 @@
 // pages/returnresult/returnresult.js
 const app = getApp()
-
 Page({
   data: {
     motto: '您的新冠阳性概率为',
@@ -12,24 +11,14 @@ Page({
     winHeight: 0,
     // tab切换
     currentTab: 0,
-
-
-
-
-    artlist:[
-      { imag: '/img/art1.png', art: "1111111111111111111111" },
-      { imag: '/img/art2.png', art: "2222222222222222222222" },
-      { imag: '/img/art3.png', art: "3333333333333333333333" },
-      { imag: '/img/art4.png', art: "4444444444444444444444" }
-    ]
-
-
-
+    s1:'新冠概率获取失败',
+    s2:'照片身份信息获取失败'
   },
   //事件处理函数
   onReady:function(){
     console.log('onloadcovidrate',getApp().globalData.covidrate);
-    this.setData({answer:getApp().globalData.covidrate});
+    this.setData({s1:getApp().globalData.covidrate});
+    this.setData({s2:getApp().globalData.username.name});
   },
   bindViewTap: function() {
     wx.navigateTo({
