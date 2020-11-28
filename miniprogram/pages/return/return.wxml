@@ -1,7 +1,13 @@
 <!--pages/return/return.wxml-->
-<text>pages/return/return.wxml</text>
-<view>
-  <text>Testing http\n</text>
-  <h1>{{rem}}</h1>
+<view class="title">
+  <text>Your Result</text>
 </view>
+<view class="title">
+  <text>{{s1}}</text>
+</view>
+
+<view class="title">
+  <text>{{s2}}</text>
+</view>
+
 <text></text>

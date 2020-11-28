@@ -5,13 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    rem:'defaulty'
+    rem:'defaulty',
+    s1:'',
+    s2:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({s1:getApp().globalData.covidrate});
+    this.setData({s2:getApp().globalData.username});
+    
     var that=this;
     wx.request({
       url: 'http://47.102.200.200:80/v1/test', 
