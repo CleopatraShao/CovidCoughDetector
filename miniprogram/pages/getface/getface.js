@@ -56,6 +56,7 @@ Page({
     wx.showLoading({title: '上传中...',});
     wx.uploadFile({
       url: getApp().globalData.imgurl,     
+      //filePath: 'recordings/timg.jpg',
       filePath: getApp().globalData.imgrt,     
       name: "figure", //name should be the file key in formData,
       header: {

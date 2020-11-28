@@ -16,7 +16,7 @@ Page({
     this.setData({wrec:1});
     var that=this;
     const options = {
-      duration: 10000,//指定录音的时长，单位 ms
+      duration: 100000,//指定录音的时长，单位 ms
       sampleRate: 16000,//采样率
       numberOfChannels: 1,//录音通道数
       encodeBitRate: 96000,//编码码率
@@ -29,13 +29,16 @@ Page({
         that.setData({auth:1});
       }
     });
-    wx.getRecorderManager().start(options);
-    wx.getRecorderManager().onStart(() => {
-      console.log('recorder start')
-    });
-    wx.getRecorderManager().onError((res) => {
-      console.log('start-record error');
-      console.log(res);
+    
+    setTimeout(function () {
+        wx.getRecorderManager().start(options);
+        wx.getRecorderManager().onStart(() => {
+          console.log('recorder start')
+        });
+        wx.getRecorderManager().onError((res) => {
+          console.log('start-record error');
+          console.log(res);
+        }, 1000);
     })
   },
   pauseit: function (){
