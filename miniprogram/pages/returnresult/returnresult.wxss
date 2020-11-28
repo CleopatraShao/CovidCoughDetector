@@ -1,0 +1,27 @@
+/* pages/returnresult/returnresult.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  display:flex;
+  justify-content:center;
+  margin-top: 65px;
+  color:black;
+  font-size:20px;
+  font-weight:bold;
+  font-family:微软雅黑;
+}
