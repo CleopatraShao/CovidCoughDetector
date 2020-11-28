@@ -1,6 +1,20 @@
 // pages/welcome/welcome.js
 Page({
+  jumptotest:function(){
+    wx.request({
+      url:'https://test.depetrol.com',
+      method:'GET',
+      success (res){
+        console.log('----wx request sucess');
+        console.log('return message',res);
+      },
+      fail (err){
+        console.log('-----wx request failed');
+        console.log('err message',err);
+      }
+    });
 
+  },
   /**
    * 页面的初始数据
    */

@@ -21,6 +21,17 @@ Page({
       success: (res) => {
         console.log('temp photo path:',res.tempImagePath);
         getApp().globalData.imgrt=res.tempImagePath;
+        wx.saveFile({
+          tempFilePath: res.tempImagePath,
+          success (res) {
+            console.log('------img save success:',res);
+            console.log('----imgpath:',res.savedFilePath);
+            getApp().globalData.imgrt = res.savedFilePath;
+          },
+          fail (res){
+            console.log('-----img save file failed:',res);
+          }
+        })
         /*
         //插入上传代码段
         wx.saveFile({
@@ -40,12 +51,12 @@ Page({
   jumptorecord: function(){
     var app = getApp();
     var that=this;
-    var imgrt=app.globalData.imgrt;
-    var coughtoken=app.globalData.coughtoken;
+    var imgrt=getApp().globalData.imgrt;
+    var coughtoken=getApp().globalData.coughtoken;
     wx.showLoading({title: '上传中...',});
     wx.uploadFile({
       url: getApp().globalData.imgurl,     
-      filePath: imgrt,     
+      filePath: getApp().globalData.imgrt,     
       name: "figure", //name should be the file key in formData,
       header: {
         coughtoken:coughtoken
@@ -55,17 +66,20 @@ Page({
       formData: {       
       },     
       success: res => {
+        console.log('img upload success:',res);
         wx.hideLoading();
-        successCallback(res);     
         var data = res.data
+        getApp().globalData.username=res.data;
         console.log(data)
         //do something
         that.setData({debuginfo:JSON.stringify(res.data)});
         //wx.navigateTo({url: '/pages/return/return'});
       },     
       fail: err => {     
+        console.log('img upload error:',err);
+        console.log('imgrt',getApp().globalData.imgrt);
         that.setData({debuginfo:err});
-        wx.hideLoading();     
+        wx.hideLoading();
         wx.showToast({
           title: '请求超时',
           icon: 'loading',     

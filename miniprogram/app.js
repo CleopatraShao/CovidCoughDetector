@@ -42,7 +42,8 @@ App({
     rtpage:[],
     coughtoken:'',
     covidrate:'',
-    imgurl:'http://47.102.200.200:80/v1/check/cough',
-    recurl:'http://47.102.200.200:80/v1/check/cough'
+    username:'',
+    recurl:'http://47.102.200.200:80/v1/check/cough',
+    imgurl:'http://47.102.200.200:80/v1/check/figure',
   }
 })

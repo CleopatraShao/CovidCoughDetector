@@ -1,5 +1,8 @@
 <!--pages/welcome/welcome.wxml-->
 <view class="title">
+  <text>\n</text>
+</view>
+<view class="title">
   <h1>COVID咳嗽声检测demo</h1>
 </view>
 <view class="title">
@@ -18,7 +21,7 @@
   </view>
 
   <view class="button-sp-area">
-    <button type="default"  bindtap="jumptoidentity">关于本小程序</button>
+    <button type="default"  bindtap="jumptotest">关于本小程序</button>
   </view>
 
 </view>

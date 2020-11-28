@@ -33,10 +33,11 @@ Page({
     wx.getRecorderManager().onStart(() => {
       console.log('recorder start')
     });
+    /*
     wx.getRecorderManager().onError((res) => {
-      console.log('start-record error');
       console.log(res);
     })
+    */
   },
   pauseit: function (){
     var app = getApp();
@@ -44,29 +45,19 @@ Page({
 
     this.setData({wrec:0});
     wx.getRecorderManager().stop();
-    wx.getRecorderManager().onStop(
-      (res) => {
-        this.tempFilePath = res.tempFilePath;
-        console.log('停止录音', res.tempFilePath);
-        console.log('msg:',res);
-        console.log('temprecordpath',res.tempFilePath);
-        getApp().globalData.recrt=res.tempFilePath;
-        setTimeout(function () {
-          wx.saveFile({
-            tempFilePath: res.tempFilePath,
-            success (res) {
-              getApp().globalData.recrt = res.savedFilePath
-            }
-          })
-        }, 1000);
-        console.log('savedrecordpath',getApp().globalData.recrt);
-      }
-      );
-      wx.getRecorderManager().onError((res) => {
-        console.log('stop-record error');
-        console.log(res);
+    wx.getRecorderManager().onStop((res) => {
+      this.tempFilePath = res.tempFilePath;
+      console.log('停止录音', res.tempFilePath);
+      console.log('temprecordpath',res.tempFilePath);
+      getApp().globalData.recrt=res.tempFilePath;
+      wx.saveFile({
+        tempFilePath: res.tempFilePath,
+        success (res) {
+          getApp().globalData.recrt = res.savedFilePath
+        }
       })
-
+      console.log('savedrecordpath',getApp().globalData.recrt);
+    })
   },
   playit : function(){
     var app = getApp();
@@ -99,7 +90,7 @@ Page({
         getApp().globalData.coughtoken=ret.header.coughtoken;
         if(getApp().globalData.coughtoken==null){
           that.setData({debuginfo:"not coughing correctly"});
-          wx.navigateTo({url: '/pages/rerecord/record'});
+          wx.navigateTo({url: '/pages/welcome/welcome'});
           return;
         }
         getApp().globalData.covidrate=ret.data;

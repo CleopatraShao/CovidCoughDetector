@@ -8,6 +8,16 @@
 <view class="debugging">
   <text>{{debuginfo}}</text>
 </view>
+<view class="title">
+  <text>\n</text>
+</view>
+<view class="title">
+  <text>\n</text>
+  <text>请咳嗽地更强烈、咳嗽时间长一些</text>
+</view>
+<view class="mytext">
+<text>这有助于程序得出更精确的数据</text>
+</view>
 
 <view class="mytext">
   <view wx:if="{{wrec==0}}">
