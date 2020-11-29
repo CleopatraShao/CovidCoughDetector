@@ -16,15 +16,10 @@
        </block>
       </view>
       <view class="usermotto">
-        <text class="user-motto">{{motto}}</text>
+        <text class="user-motto">您好，{{s2}}</text>
       </view>
-
-      <view class="data0">
-        <text>{{s1}}</text>
-      </view>
-
-      <view class="data0">
-        <text>{{s2}}</text>
+      <view class="usermotto">
+        <text class="user-motto">{{motto}}:{{s1}}</text>
       </view>
     </swiper-item>
 

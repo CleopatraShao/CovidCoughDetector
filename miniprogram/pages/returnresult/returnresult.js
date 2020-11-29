@@ -12,13 +12,13 @@ Page({
     // tab切换
     currentTab: 0,
     s1:'新冠概率获取失败',
-    s2:'照片身份信息获取失败'
+    s2:'您照片身份信息获取失败'
   },
   //事件处理函数
   onReady:function(){
     console.log('onloadcovidrate',getApp().globalData.covidrate);
-    this.setData({s1:getApp().globalData.covidrate});
-    this.setData({s2:getApp().globalData.username.name});
+    this.setData({s1:JSON.parse(  getApp().globalData.covidrate.replace(/'/g,'\"')  ).rate});
+    this.setData({s2:JSON.parse(  getApp().globalData.username.replace(/'/g,'\"')  ).name});
   },
   bindViewTap: function() {
     wx.navigateTo({
