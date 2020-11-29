@@ -85,8 +85,8 @@ Page({
     wx.showLoading({title: '上传中...',});
     wx.uploadFile({
       url: getApp().globalData.recurl,
-      filePath: getApp().globalData.recrt,
-      //filePath: '/recordings/long_cough.mp3',
+      //filePath: getApp().globalData.recrt,
+      filePath: '/recordings/long_cough.mp3',
       name: "cough", //name should be the file key in formData,
       method: 'POST',
       timeout:"1000",
