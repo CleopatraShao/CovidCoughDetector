@@ -16,7 +16,7 @@ Page({
     this.setData({wrec:1});
     var that=this;
     const options = {
-      duration: 10000,//指定录音的时长，单位 ms
+      duration: 100000,//指定录音的时长，单位 ms
       sampleRate: 16000,//采样率
       numberOfChannels: 1,//录音通道数
       encodeBitRate: 96000,//编码码率
@@ -90,7 +90,8 @@ Page({
         getApp().globalData.coughtoken=ret.header.coughtoken;
         if(getApp().globalData.coughtoken==null){
           that.setData({debuginfo:"not coughing correctly"});
-          wx.navigateTo({url: '/pages/rerecord/record'});
+          console.log('no coughtoken');
+          wx.navigateTo({url: '/pages/rerecord/rerecord'});
           return;
         }
         getApp().globalData.covidrate=ret.data;

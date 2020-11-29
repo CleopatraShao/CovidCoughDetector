@@ -3,6 +3,7 @@
     "pages/welcome/welcome",
     "pages/identity/identity",
     "pages/record/record",
+    "pages/rerecord/rerecord",
     "pages/getface/getface",
     "pages/index/index",
     "pages/logs/logs",

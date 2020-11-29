@@ -102,7 +102,7 @@ Page({
         getApp().globalData.coughtoken=ret.header.coughtoken;
         if(getApp().globalData.coughtoken==null){
           that.setData({debuginfo:"not coughing correctly"});
-          wx.navigateTo({url: '/pages/rerecord/record'});
+          wx.navigateTo({url: '/pages/rerecord/rerecord'});
           return;
         }
         getApp().globalData.covidrate=ret.data;
